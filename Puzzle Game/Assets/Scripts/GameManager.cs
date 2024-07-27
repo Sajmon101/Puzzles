@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,35 +11,40 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject innerPuzzle;
 
     private int puzzleBoardSize;
-    private float singlePuzzleSize;
+    private float boardSize;
+    private float puzzleSize;
     int row = 0;
     int col = 0;
 
 
     private void Start()
     {
-        puzzleBoardSize = 4;
-        singlePuzzleSize = 1; //dopasuj na automatyczne!
+        puzzleSize = 1.25f;
+        puzzleBoardSize = 12;
+        boardSize = 6.0f/puzzleBoardSize;
 
         //creating board
         GeneratePuzzleBoard(puzzleBoardSize);
+        puzzleParent.localScale = new Vector3(boardSize, boardSize, boardSize);
         puzzleParent.SetParent(canvas);
-        puzzleParent.SetLocalPositionAndRotation(puzzleParent.position - new Vector3(300f,150f,0), Quaternion.identity); //na sztywno wpisane!
+
     }
 
     private void CreatePuzzle(GameObject puzzleType, int rotation)
     {
+
+
+        GameObject puzzle = Instantiate(puzzleType, puzzleParent);
+        puzzle.transform.localPosition = new Vector3(-puzzleBoardSize/2+ col * puzzleSize, -puzzleBoardSize/2 + row * puzzleSize, 0f);
+        puzzle.transform.localScale = new Vector3(1f, 1f, 0f);
+        puzzle.transform.rotation = Quaternion.Euler(0f, 0f, rotation);
+
+        col++;
         if (col == puzzleBoardSize)
         {
             col = 0;
             row++;
         }
-        col++;
-
-        GameObject puzzle = Instantiate(puzzleType, puzzleParent);
-        puzzle.transform.localPosition = new Vector3(col*1.25f, row*1.25f, 0f); //1.25 na razie wpisane na sztywno!
-        puzzle.transform.localScale = new Vector3(singlePuzzleSize, singlePuzzleSize, 0f);
-        puzzle.transform.rotation = Quaternion.Euler(0f, 0f, rotation);
     }
 
     private void GeneratePuzzleBoard(int size)
