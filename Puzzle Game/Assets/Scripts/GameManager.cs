@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,35 +10,40 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject sideTwoHolesPuzzle;
     [SerializeField] private GameObject sideOneHolePuzzle;
     [SerializeField] private GameObject innerPuzzle;
+    [SerializeField] private GameObject logo;
 
     private int puzzleBoardSize;
     private float boardSize;
-    private float puzzleSize;
+    private float puzzleScale;
+    private float puzzleOffset;
     int row = 0;
     int col = 0;
 
 
     private void Start()
     {
-        puzzleSize = 1.25f;
-        puzzleBoardSize = 12;
-        boardSize = 6.0f/puzzleBoardSize;
+        puzzleBoardSize = 4;
+        puzzleScale = 800f/puzzleBoardSize;
+        puzzleOffset = 1.25f *puzzleScale;
 
-        //creating board
         GeneratePuzzleBoard(puzzleBoardSize);
-        puzzleParent.localScale = new Vector3(boardSize, boardSize, boardSize);
-        puzzleParent.SetParent(canvas);
-
     }
 
     private void CreatePuzzle(GameObject puzzleType, int rotation)
     {
-
-
         GameObject puzzle = Instantiate(puzzleType, puzzleParent);
-        puzzle.transform.localPosition = new Vector3(-puzzleBoardSize/2+ col * puzzleSize, -puzzleBoardSize/2 + row * puzzleSize, 0f);
-        puzzle.transform.localScale = new Vector3(1f, 1f, 0f);
+        Vector3 leftDownBoardCorner = new Vector3((-puzzleBoardSize/2*puzzleOffset + 0.5f * puzzleOffset), (-puzzleBoardSize/2*puzzleOffset + 0.5f * puzzleOffset), 0f);
+        puzzle.transform.localPosition = leftDownBoardCorner + new Vector3(col * puzzleOffset, row * puzzleOffset, 0f);
+        puzzle.transform.localScale = new Vector3(puzzleScale, puzzleScale, 0f);
         puzzle.transform.rotation = Quaternion.Euler(0f, 0f, rotation);
+
+        //dodaj logo
+        // Utwórz instancjê prefab
+        GameObject instance = Instantiate(logo);
+
+        // Ustaw rodzica dla nowo utworzonego obiektu
+        instance.transform.SetParent(puzzle.transform);
+        instance.transform.localScale = new Vector3(0.175f * puzzleBoardSize, 0.175f * puzzleBoardSize, 1.0f); //na sztywno na razie!
 
         col++;
         if (col == puzzleBoardSize)
