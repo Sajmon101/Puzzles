@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,22 +10,44 @@ public class DragAndDrop : MonoBehaviour
     private bool isDragging = false;
     private Vector3 offset;
     private Camera mainCamera;
+    private float snapThreshold;
+    private bool isSnapped = false;
 
     private void Start()
     {
         mainCamera = Camera.main;
+        snapThreshold = 0.9f;
     }
 
     void OnMouseDown()
     {
-        isDragging = true;
-        // Zapisz offset miêdzy pozycj¹ obiektu a pozycj¹ kursora
-        offset = transform.position - GetMouseWorldPosition();
+        if (!isSnapped)
+        {
+            isDragging = true;
+        }
     }
 
     void OnMouseUp()
     {
         isDragging = false;
+
+        if (!isSnapped)
+        {
+            // Zapisz offset miêdzy pozycj¹ obiektu a pozycj¹ kursora
+            offset = transform.position - GetMouseWorldPosition();
+
+            Vector3 targetPosition = GetComponent<Puzzle>().correctPosition;
+
+            // SprawdŸ, czy puzzel jest blisko docelowej pozycji
+            if (Vector3.Distance(transform.position, targetPosition) <= snapThreshold)
+            {
+                // Ustawienie puzzla dok³adnie na docelowej pozycji
+                transform.position = targetPosition;
+                isSnapped = true;
+                GameManager.Instance.SpawnRandomPuzzle();
+                AudioManager.Instance.Play(AudioManager.SoundName.SnapSound);
+            }
+        }
     }
 
     void Update()
@@ -41,4 +65,5 @@ public class DragAndDrop : MonoBehaviour
         mousePoint.z = mainCamera.WorldToScreenPoint(transform.position).z; // Z odleg³oœci¹ Z obiektu
         return mainCamera.ScreenToWorldPoint(mousePoint);
     }
+
 }

@@ -5,7 +5,9 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Transform puzzleParent;
+    [SerializeField] private Transform puzzlePile;
+    [SerializeField] private Transform puzzleTargetPlace;
+    [SerializeField] private Transform puzzleBackground;
     [SerializeField] private Transform canvas;
     [SerializeField] private GameObject cornerPuzzle;
     [SerializeField] private GameObject sideTwoHolesPuzzle;
@@ -21,7 +23,19 @@ public class GameManager : MonoBehaviour
     int col = 0;
     private List<Transform> puzzlesList = new();
 
+    public static GameManager Instance;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         puzzleScale = 800f/puzzleBoardSize;
@@ -29,21 +43,22 @@ public class GameManager : MonoBehaviour
 
         GeneratePuzzleBoard(puzzleBoardSize);
         MakePuzzlePile();
-        GetRandomPuzzle()?.SetActive(true);
+        SpawnRandomPuzzle();
     }
 
     private void CreatePuzzle(GameObject puzzleType, int rotation)
     {
-        GameObject puzzle = Instantiate(puzzleType, puzzleParent);
+        GameObject puzzle = Instantiate(puzzleType, puzzleTargetPlace);
         Vector3 leftDownBoardCorner = new Vector3((-puzzleBoardSize/2*puzzleOffset + 0.5f * puzzleOffset), (-puzzleBoardSize/2*puzzleOffset + 0.5f * puzzleOffset), 0f);
         puzzle.transform.localPosition = leftDownBoardCorner + new Vector3(col * puzzleOffset, row * puzzleOffset, 0f);
         puzzle.transform.localScale = new Vector3(puzzleScale, puzzleScale, 0f);
         puzzle.transform.rotation = Quaternion.Euler(0f, 0f, rotation);
+        puzzle.GetComponent<Puzzle>().correctPosition = puzzle.transform.position;
 
         //dodaj logo
         // Utwórz instancjê prefab
         GameObject logoObj = Instantiate(logo);
-        logoObj.transform.SetParent(puzzleParent);
+        logoObj.transform.SetParent(puzzleTargetPlace);
         logoObj.transform.localPosition = Vector3.zero;
 
         // Ustaw rodzica dla nowo utworzonego obiektu
@@ -104,18 +119,31 @@ public class GameManager : MonoBehaviour
 
     void MakePuzzlePile()
     {
-        foreach(Transform transform in puzzleParent)
+        // Tworzymy tymczasow¹ listê do przechowywania dzieci
+        List<Transform> children = new List<Transform>();
+
+        // Przechodzimy przez ka¿de dziecko w puzzleTargetPlace i dodajemy je do listy
+        foreach (Transform child in puzzleTargetPlace)
         {
-            transform.localPosition = Vector3.zero;
+            children.Add(child);
+        }
+
+        // Teraz przenosimy ka¿de dziecko z listy do puzzlePile
+        foreach (Transform childTransform in children)
+        {
+            childTransform.SetParent(puzzlePile.transform);
+            childTransform.localPosition = Vector3.zero;
         }
     }
 
-    GameObject GetRandomPuzzle()
+
+    public void SpawnRandomPuzzle()
     {
+        
         if (puzzlesList.Count == 0)
         {
             Debug.LogWarning("No more puzzle pieces to draw.");
-            return null;  // Zwróæ null, jeœli lista jest pusta
+            return;  // Zwróæ null, jeœli lista jest pusta
         }
 
         // Losuj indeks z dostêpnych elementów
@@ -128,6 +156,6 @@ public class GameManager : MonoBehaviour
         puzzlesList.RemoveAt(randomIndex);
 
         // Zwróæ wylosowany GameObject
-        return selectedPuzzle.gameObject;
+        selectedPuzzle.gameObject.SetActive(true);
     }
 }

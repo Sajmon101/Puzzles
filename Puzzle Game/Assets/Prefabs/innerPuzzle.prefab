@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 110616233273399644}
   - component: {fileID: 4768323785048788996}
   - component: {fileID: 276667800349795334}
+  - component: {fileID: 347245722901987457}
   m_Layer: 0
   m_Name: innerPuzzle
   m_TagString: Untagged
@@ -240,3 +241,15 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &347245722901987457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433669403455809646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7833761b6eaa6a44b8b3937c6c158d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

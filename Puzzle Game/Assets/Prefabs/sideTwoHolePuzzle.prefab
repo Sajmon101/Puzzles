@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2041079687936617717}
   - component: {fileID: 7504863548487982394}
   - component: {fileID: 1602157559150234199}
+  - component: {fileID: 5178096757415502272}
   m_Layer: 0
   m_Name: sideTwoHolePuzzle
   m_TagString: Untagged
@@ -104,6 +105,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2837895, y: 1.6782088}
   m_EdgeRadius: 0
+--- !u!114 &5178096757415502272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625787579580603709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7833761b6eaa6a44b8b3937c6c158d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3948019475103169132
 GameObject:
   m_ObjectHideFlags: 0

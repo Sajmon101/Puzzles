@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5378933019154478}
   - component: {fileID: -385559333138511587}
   - component: {fileID: -4660358291653130547}
+  - component: {fileID: -5893548621849536181}
   m_Layer: 0
   m_Name: CornerPuzzle
   m_TagString: Untagged
@@ -104,6 +105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d7a47c3210ff74aaea995ffd4aafef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5893548621849536181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246829614947339490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7833761b6eaa6a44b8b3937c6c158d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctPosition: {fileID: 0}
 --- !u!1 &3876977404889268399
 GameObject:
   m_ObjectHideFlags: 0
