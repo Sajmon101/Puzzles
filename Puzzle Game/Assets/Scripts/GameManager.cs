@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     int row = 0;
     int col = 0;
     private List<Transform> puzzlesList = new();
+    public event EventHandler OnGameEnd;
 
     public static GameManager Instance;
 
@@ -35,7 +36,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        OnGameEnd += EndGameActions;
     }
+
     private void Start()
     {
         puzzleScale = 800f/puzzleBoardSize;
@@ -137,13 +141,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void SpawnRandomPuzzle()
+    public bool SpawnRandomPuzzle()
     {
         
         if (puzzlesList.Count == 0)
         {
-            Debug.LogWarning("No more puzzle pieces to draw.");
-            return;  // Zwróæ null, jeœli lista jest pusta
+            OnGameEnd?.Invoke(this, EventArgs.Empty);
+            return false;  // Zwróæ null, jeœli lista jest pusta
         }
 
         // Losuj indeks z dostêpnych elementów
@@ -157,5 +161,11 @@ public class GameManager : MonoBehaviour
 
         // Zwróæ wylosowany GameObject
         selectedPuzzle.gameObject.SetActive(true);
+        return true;
+    }
+
+    private void EndGameActions(object sender, EventArgs e)
+    {
+        //akcje na koniec gry
     }
 }

@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        // Implementacja Singletona
         if (Instance == null)
         {
             Instance = this;
@@ -59,7 +58,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
-        Debug.Log("gra");
     }
 
     public void Stop(SoundName name)
