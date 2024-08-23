@@ -11,21 +11,18 @@ public class HighscoreManager : MonoBehaviour
 
     void Awake()
     {
-        //filePath = Application.persistentDataPath + "/highscores.json";
-        filePath = "C:/Users/super/OneDrive/Pulpit" + "/highscores.json";
+        filePath = Application.persistentDataPath + "/highscores.json";
     }
 
     private void Start()
     {
         GameManager.Instance.OnGameEnd += OnGameEnd;
-        ShowScores();
     }
 
     private void OnGameEnd(object sender, System.EventArgs e)
     {
         string playerName = "Player1"; // Tutaj musisz pobraæ nazwê sk¹dœ
         TimerValue finishTime = timer.GetCurrentTimerValue();
-
         AddNewScore(playerName, finishTime);
     }
 
@@ -60,17 +57,6 @@ public class HighscoreManager : MonoBehaviour
         SaveHighscores(highscoreTable);
     }
 
-    private void ShowScores()
-    {
-        HighscoreTable highscoreTable = LoadHighscores();
-
-        foreach(Score score in highscoreTable.scoreList)
-        {
-            Debug.Log(score.playerName + ": " + score.score.minutes + ":" + score.score.seconds);
-        }
-
-    }
-
     public int CompareTimerValues(TimerValue x, TimerValue y)
     {
         if (x.minutes != y.minutes)
@@ -82,5 +68,9 @@ public class HighscoreManager : MonoBehaviour
             return x.seconds.CompareTo(y.seconds); // Jeœli minuty s¹ równe, porównaj sekundy
         }
     }
+
+
+
+
 
 }

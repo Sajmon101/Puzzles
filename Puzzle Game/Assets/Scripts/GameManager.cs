@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -166,6 +167,6 @@ public class GameManager : MonoBehaviour
 
     private void EndGameActions(object sender, EventArgs e)
     {
-        //akcje na koniec gry
+        SceneManager.LoadScene(3);
     }
 }
