@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzles (easy).unity
     guid: ba7a68a5254d077448a337707f292d81
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: b20fa6a6ec0013e468da43943a2ddca2
-  - enabled: 1
     path: Assets/Scenes/Puzzles.unity
     guid: 99142c7b2723ea341a6ad9d060621f5f
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: b20fa6a6ec0013e468da43943a2ddca2
   - enabled: 1
     path: Assets/Scenes/HighScores.unity
     guid: 7da5dbe471f78ca4bb22b03618d0bc78

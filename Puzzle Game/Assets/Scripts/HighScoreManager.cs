@@ -21,7 +21,7 @@ public class HighscoreManager : MonoBehaviour
 
     private void OnGameEnd(object sender, System.EventArgs e)
     {
-        string playerName = "Player1"; // Tutaj musisz pobraæ nazwê sk¹dœ
+        string playerName = PlayerData.playerName; 
         TimerValue finishTime = timer.GetCurrentTimerValue();
         AddNewScore(playerName, finishTime);
     }
