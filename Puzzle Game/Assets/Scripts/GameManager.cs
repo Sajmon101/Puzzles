@@ -3,9 +3,13 @@ using System;
 using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEditor;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private TextMeshProUGUI winPanelText;
     [SerializeField] private Transform puzzlePile;
     [SerializeField] private Transform puzzleTargetPlace;
     [SerializeField] private Transform puzzleBackground;
@@ -166,6 +170,12 @@ public class GameManager : MonoBehaviour
     }
 
     private void EndGameActions(object sender, EventArgs e)
+    {
+        winPanel.SetActive(true);
+        winPanelText.text = "Gratulacje " + PlayerData.playerName + "!";
+    }
+
+    public void NextScene()
     {
         SceneManager.LoadScene(3);
     }

@@ -25,28 +25,6 @@ public class ShowHighScores : MonoBehaviour
         ShowScores();
     }
 
-    //private void ShowScores()
-    //{
-    //    HighscoreTable highscoreTable = LoadHighscores();
-
-    //    foreach (Score score in highscoreTable.scoreList)
-    //    {
-    //        // Instantiuj prefab
-    //        GameObject scoreEntry = Instantiate(scoreRecord, scoreTableContent);
-
-    //        // Pobierz komponent RectTransform
-    //        RectTransform rectTransform = scoreEntry.GetComponent<RectTransform>();
-
-    //        // Wyœrodkuj prefab
-    //        rectTransform.anchoredPosition = Vector2.zero;
-    //        rectTransform.localScale = Vector3.one;
-
-    //        // Ustaw tekst lub inne dane
-    //        TextMeshProUGUI scoreText = scoreEntry.GetComponentInChildren<TextMeshProUGUI>();
-    //        scoreText.text = score.playerName + ": " + score.score.minutes.ToString("00") + ":" + score.score.seconds.ToString("00.00");
-    //    }
-    //}
-
     private void ShowScores()
     {
         HighscoreTable highscoreTable = LoadHighscores();
@@ -66,19 +44,11 @@ public class ShowHighScores : MonoBehaviour
                 scoreEntry = Instantiate(scoreRecordPrefab, scoreTableContent);
             }
 
-            // Pobierz komponent RectTransform
-            RectTransform rectTransform = scoreEntry.GetComponent<RectTransform>();
-
-            // Wyœrodkuj prefab
-            rectTransform.anchoredPosition = Vector2.zero;
-            rectTransform.localScale = Vector3.one;
-
             // Ustaw tekst lub inne dane
             TextMeshProUGUI scoreText = scoreEntry.GetComponentInChildren<TextMeshProUGUI>();
             scoreText.text = (i+1).ToString() + ". " + score.playerName + ": " + score.score.minutes.ToString("00") + ":" + score.score.seconds.ToString("00.00");
         }
 
-        // Jeœli znaleziono wynik gracza, przewiñ do jego pozycji
         if (currentPlayerHihgscoreTile != null)
         {
             StartCoroutine(ScrollToPlayer());
@@ -97,10 +67,11 @@ public class ShowHighScores : MonoBehaviour
         Debug.Log(contentHeight);
         Debug.Log(targetY);
 
-        float normalizedPosition = 1 - (targetY / contentHeight);
+        float normalizedPosition = 1.0f - (targetY / contentHeight);
         normalizedPosition = Mathf.Clamp01(normalizedPosition);
 
         scrollRect.verticalNormalizedPosition = normalizedPosition;
+        Debug.Log(scrollRect.verticalNormalizedPosition);
     }
 
     public HighscoreTable LoadHighscores()

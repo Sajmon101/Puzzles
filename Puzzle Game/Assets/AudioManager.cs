@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
 
     public enum SoundName
     {
-        SnapSound
+        SnapSound,
+        ButtonSound
     }
 
     [System.Serializable]

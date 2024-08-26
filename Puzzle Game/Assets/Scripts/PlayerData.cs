@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public static string playerName;
+    public static string playerName = string.Empty;
 }
 

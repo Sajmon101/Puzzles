@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff9173b84063ef49925dffa47fca665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNamePanel: {fileID: 0}
+  playerNameInput: {fileID: 0}
+  errorText: {fileID: 0}
 --- !u!1 &195843310
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +597,7 @@ GameObject:
   - component: {fileID: 1107309464}
   - component: {fileID: 1107309463}
   - component: {fileID: 1107309462}
+  - component: {fileID: 1107309465}
   m_Layer: 5
   m_Name: BackBtn
   m_TagString: Untagged
@@ -715,6 +719,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107309460}
   m_CullTransparentMesh: 1
+--- !u!114 &1107309465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107309460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7055bd10e8f514db3594b1c90438ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1282632497
 GameObject:
   m_ObjectHideFlags: 0
