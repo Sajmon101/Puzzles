@@ -2635,15 +2635,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: 0
-    clip: {fileID: 8300000, guid: 14530e97f5c392446be434fe607696bf, type: 3}
+    clip: {fileID: 8300000, guid: aacbefef869deba49bd72cf05eea31f2, type: 3}
     volume: 1
-    pitch: 1.5
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 1
-    clip: {fileID: 8300000, guid: cd6f108a4423a9540b375cb1a1b453c5, type: 3}
+    clip: {fileID: 0}
     volume: 1
-    pitch: 1.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 2
+    clip: {fileID: 8300000, guid: ff1190f92c6f64f40abb129c740b7ed6, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 3
+    clip: {fileID: 8300000, guid: ccffd4a666ef9684fbcd78be3092bd5c, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!1 &1507318114927242702
@@ -2672,7 +2684,7 @@ Transform:
   m_GameObject: {fileID: 1507318114927242702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4688306, y: -0.21243052, z: -0.6556981}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

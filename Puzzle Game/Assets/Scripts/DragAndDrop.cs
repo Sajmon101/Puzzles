@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -24,12 +25,14 @@ public class DragAndDrop : MonoBehaviour
         if (!isSnapped)
         {
             isDragging = true;
+            gameObject.GetComponent<SortingGroup>().sortingOrder = 5;
         }
     }
 
     void OnMouseUp()
     {
         isDragging = false;
+        gameObject.GetComponent<SortingGroup>().sortingOrder = 1;
 
         if (!isSnapped)
         {

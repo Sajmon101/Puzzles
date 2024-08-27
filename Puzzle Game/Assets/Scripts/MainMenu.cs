@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -12,6 +13,23 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject playerNamePanel;
     [SerializeField] private TextMeshProUGUI playerNameInput;
     [SerializeField] private TextMeshProUGUI errorText;
+    private string filePath;
+
+    void Awake()
+    {
+        filePath = Application.persistentDataPath + "/highscores.json";
+    }
+
+    private void Start()
+    {
+        AudioSource backgroundSong = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
+
+        if (!backgroundSong.isPlaying)
+        {
+            AudioManager.Instance.Play(AudioManager.SoundName.BackgroundSong);
+        }
+           
+    }
 
     public void ShowPlayerInput()
     {
@@ -45,12 +63,7 @@ public class MainMenu : MonoBehaviour
     public bool SavePlayerName()
     {
         string playerName = playerNameInput.text;
-        // Usuniêcie znaku Zero Width Space i innych znaków kontrolnych
-        string cleanedPlayerName = Regex.Replace(playerName, @"\p{C}+", string.Empty).Trim();
-        Debug.Log($"Cleaned playerName: '{cleanedPlayerName}', Length: {cleanedPlayerName.Length}");
-        //string playerName2 = "";
-        //Debug.Log("Nazwa gracza:" + playerName + "D³ugoœæ" + playerName.Length);
-        //Debug.Log("Nazwa gracza:" + playerName2 + "D³ugoœæ" + playerName2.Length);
+        string cleanedPlayerName = Regex.Replace(playerName, @"\p{C}+", string.Empty).Trim();      // Usuniêcie znaku Zero Width Space i innych znaków kontrolnych
         ValidationStatus status = ValidatePlayerName(cleanedPlayerName);
 
         switch (status)
@@ -66,6 +79,10 @@ public class MainMenu : MonoBehaviour
             case ValidationStatus.EmptyName:
                 errorText.text = "WprowadŸ nazwê gracza";
                 return false;
+
+            case ValidationStatus.NameAlreadyExists:
+                errorText.text = "Ta nazwa ju¿ jest zajêta";
+                return false;
         }
 
         return false;
@@ -75,18 +92,52 @@ public class MainMenu : MonoBehaviour
     {
         Success,
         EmptyName,
-        TooLongName
+        TooLongName,
+        NameAlreadyExists
     }
 
     private ValidationStatus ValidatePlayerName(string playerName)
     {
-        Debug.Log($"'playerName' is '{playerName}' and its length is {playerName.Length}");
         if (string.IsNullOrWhiteSpace(playerName))
             return ValidationStatus.EmptyName;
         if(playerName.Length >= 20)
             return ValidationStatus.TooLongName;
+        if (IsNameExisting(playerName))
+            return ValidationStatus.NameAlreadyExists;
 
         return ValidationStatus.Success;
+    }
+
+    private bool IsNameExisting(string playerName)
+    {
+        HighscoreTable highscoreTable = LoadHighscores();
+
+        for (int i = 0; i < highscoreTable.scoreList.Count; i++)
+        {
+            Score score = highscoreTable.scoreList[i];
+            string cleanedPlayerName = Regex.Replace(score.playerName, @"\p{C}+", string.Empty).Trim();
+
+            if (cleanedPlayerName == playerName)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    private HighscoreTable LoadHighscores()
+    {
+
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            return JsonUtility.FromJson<HighscoreTable>(json);
+        }
+        else
+        {
+            return new HighscoreTable(); // Zwróæ pusty ranking, jeœli plik nie istnieje
+        }
     }
 
 }

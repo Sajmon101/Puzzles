@@ -22,6 +22,9 @@ public class ShowHighScores : MonoBehaviour
 
     void Start()
     {
+        //AudioManager.Instance.Play(AudioManager.SoundName.BackgroundSong);
+        AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
+        backgrounSound.volume = 1f;
         ShowScores();
     }
 
@@ -64,14 +67,11 @@ public class ShowHighScores : MonoBehaviour
 
         float contentHeight = scoreTableContent.rect.height;
         float targetY = Mathf.Abs(target.localPosition.y);
-        Debug.Log(contentHeight);
-        Debug.Log(targetY);
 
         float normalizedPosition = 1.0f - (targetY / contentHeight);
         normalizedPosition = Mathf.Clamp01(normalizedPosition);
 
         scrollRect.verticalNormalizedPosition = normalizedPosition;
-        Debug.Log(scrollRect.verticalNormalizedPosition);
     }
 
     public HighscoreTable LoadHighscores()

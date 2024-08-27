@@ -8,7 +8,9 @@ public class AudioManager : MonoBehaviour
     public enum SoundName
     {
         SnapSound,
-        ButtonSound
+        ButtonSound,
+        BackgroundSong,
+        WinSound
     }
 
     [System.Serializable]
@@ -70,5 +72,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    public AudioSource GetSound(SoundName name)
+    {
+        Sound s = System.Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return null;
+        }
+        return s.source;
     }
 }

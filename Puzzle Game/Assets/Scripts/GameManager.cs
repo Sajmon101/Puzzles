@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         }
 
         OnGameEnd += EndGameActions;
+
     }
 
     private void Start()
@@ -173,6 +174,9 @@ public class GameManager : MonoBehaviour
     {
         winPanel.SetActive(true);
         winPanelText.text = "Gratulacje " + PlayerData.playerName + "!";
+        AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
+        backgrounSound.volume = 0.35f;
+        AudioManager.Instance.Play(AudioManager.SoundName.WinSound);
     }
 
     public void NextScene()

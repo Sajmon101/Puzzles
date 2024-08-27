@@ -11,5 +11,6 @@ public class StartGame : MonoBehaviour
     {
         timer.SetActive(true);
         instructionPanel.SetActive(false);
+        AudioManager.Instance.Play(AudioManager.SoundName.SnapSound);
     }
 }

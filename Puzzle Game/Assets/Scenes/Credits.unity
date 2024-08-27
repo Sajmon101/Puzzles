@@ -799,8 +799,8 @@ Canvas:
   m_GameObject: {fileID: 1282632497}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 377409424}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -869,8 +869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: -45}
-  m_SizeDelta: {x: 642.668, y: 263.907}
+  m_AnchoredPosition: {x: 38, y: 236}
+  m_SizeDelta: {x: 1160.38, y: 263.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916184004
 MonoBehaviour:
@@ -892,7 +892,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Autor: Szymon Korus\nDla projektu: Tydzie\u0144 klimatu Most europa-Afryka"
+  m_text: "Autor: Szymon Korus\nDla projektu: Tydzie\u0144 klimatu Most europa-Afryka\n\nMuzyka
+    w tle pt. \"Inspiring and Energetic\" autorstwa UNIVERSFIELD jest dost\u0119pny
+    na licencji Creative Commons Attribution 4.0 (CC BY 4.0). [Link do licencji:
+    https://creativecommons.org/licenses/by/4.0/] oraz dost\u0119pny na https://freesound.org/people/UNIVERSFIELD/sounds/749933/.\n\n\"Bass
+    drum snare roll victorious victory positive percussion\" autorstwa ryusa jest
+    dost\u0119pna na licencji https://creativecommons.org/licenses/by/4.0/] oraz
+    dost\u0119pny na https://freesound.org/people/ryusa/sounds/531132/."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -926,7 +932,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

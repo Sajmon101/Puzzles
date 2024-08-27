@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7328030867912393719, guid: dbced4362da24d1488562181a84d20db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.638889
+      value: -3.55
       objectReference: {fileID: 0}
     - target: {fileID: 7328030867912393719, guid: dbced4362da24d1488562181a84d20db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -538,9 +538,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7328030867912393719, guid: dbced4362da24d1488562181a84d20db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2108501530}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbced4362da24d1488562181a84d20db, type: 3}
+--- !u!4 &543712068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7328030867912393719, guid: dbced4362da24d1488562181a84d20db, type: 3}
+  m_PrefabInstance: {fileID: 543712067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &600943999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,8 +2025,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c29af7af317864f489ffdb1a1297a52b, type: 3}
-  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 91612c25591547b4a9248187116292ec, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2038,7 +2046,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1800, y: 1000, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2202,11 +2210,11 @@ Transform:
   m_GameObject: {fileID: 2108501529}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.638889, y: 0, z: 0}
-  m_LocalScale: {x: 0.00925926, y: 0.00925926, z: 0.00925926}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.009345794, y: 0.009345794, z: 0.009345794}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 543712068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2215,7 +2223,6 @@ SceneRoots:
   - {fileID: 1669515746}
   - {fileID: 1909547112}
   - {fileID: 543712067}
-  - {fileID: 2108501530}
   - {fileID: 905632667}
   - {fileID: 153851489}
   - {fileID: 1401011228}
