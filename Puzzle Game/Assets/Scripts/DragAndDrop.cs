@@ -32,7 +32,6 @@ public class DragAndDrop : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        gameObject.GetComponent<SortingGroup>().sortingOrder = 1;
 
         if (!isSnapped)
         {
@@ -44,6 +43,7 @@ public class DragAndDrop : MonoBehaviour
             // Sprawdü, czy puzzel jest blisko docelowej pozycji
             if (Vector3.Distance(transform.position, targetPosition) <= snapThreshold)
             {
+                gameObject.GetComponent<SortingGroup>().sortingOrder = 1;
                 // Ustawienie puzzla dok≥adnie na docelowej pozycji
                 transform.position = targetPosition;
                 isSnapped = true;
