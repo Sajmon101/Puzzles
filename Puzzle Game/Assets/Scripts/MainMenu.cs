@@ -100,7 +100,7 @@ public class MainMenu : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(playerName))
             return ValidationStatus.EmptyName;
-        if(playerName.Length >= 20)
+        if(playerName.Length > 20)
             return ValidationStatus.TooLongName;
         if (IsNameExisting(playerName))
             return ValidationStatus.NameAlreadyExists;

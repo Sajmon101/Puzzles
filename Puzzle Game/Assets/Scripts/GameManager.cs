@@ -9,7 +9,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject winPanel;
-    [SerializeField] private TextMeshProUGUI winPanelText;
+    [SerializeField] private TextMeshProUGUI winPanelBigText;
+    [SerializeField] private TextMeshProUGUI winPanelSmallText;
     [SerializeField] private Transform puzzlePile;
     [SerializeField] private Transform puzzleTargetPlace;
     [SerializeField] private Transform puzzleBackground;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject innerPuzzle;
     [SerializeField] private GameObject logo;
     [SerializeField] private int puzzleBoardSize = 4;
+    [SerializeField] private Timer timer;
 
     private float boardSize;
     private float puzzleScale;
@@ -173,7 +175,8 @@ public class GameManager : MonoBehaviour
     private void EndGameActions(object sender, EventArgs e)
     {
         winPanel.SetActive(true);
-        winPanelText.text = "Gratulacje " + PlayerData.playerName + "!";
+        winPanelBigText.text = "Gratulacje " + PlayerData.playerName + "!";
+        winPanelSmallText.text = "Twój czas to: " + timer.GetCurrentTimerValue().minutes.ToString("00") + ":" + timer.GetCurrentTimerValue().seconds.ToString("00");
         AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
         backgrounSound.volume = 0.35f;
         AudioManager.Instance.Play(AudioManager.SoundName.WinSound);

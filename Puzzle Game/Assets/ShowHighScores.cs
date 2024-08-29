@@ -48,8 +48,10 @@ public class ShowHighScores : MonoBehaviour
             }
 
             // Ustaw tekst lub inne dane
-            TextMeshProUGUI scoreText = scoreEntry.GetComponentInChildren<TextMeshProUGUI>();
-            scoreText.text = (i+1).ToString() + ". " + score.playerName + ": " + score.score.minutes.ToString("00") + ":" + score.score.seconds.ToString("00.00");
+            TextMeshProUGUI scorePlayerName = scoreEntry.GetComponent<Score1>().playerName;
+            TextMeshProUGUI scoreTime = scoreEntry.GetComponent<Score1>().time;
+            scorePlayerName.text = (i+1).ToString() + ". " + score.playerName;
+            scoreTime.text = score.score.minutes.ToString("00") + ":" + score.score.seconds.ToString("00.00");
         }
 
         if (currentPlayerHihgscoreTile != null)
