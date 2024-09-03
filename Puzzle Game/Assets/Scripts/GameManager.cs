@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
     private void EndGameActions(object sender, EventArgs e)
     {
         winPanel.SetActive(true);
-        winPanelBigText.text = "Gratulacje " + PlayerData.playerName + "!";
+        winPanelBigText.text = "Gratulacje<line-height=130%>\n" + PlayerData.playerName + "!";
         winPanelSmallText.text = "Twój czas to: " + timer.GetCurrentTimerValue().minutes.ToString("00") + ":" + timer.GetCurrentTimerValue().seconds.ToString("00");
         AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
         backgrounSound.volume = 0.3f;

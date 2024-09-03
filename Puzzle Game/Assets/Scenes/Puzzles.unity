@@ -1066,7 +1066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -25.27}
+  m_AnchoredPosition: {x: 0, y: -52.5}
   m_SizeDelta: {x: 743.97, y: 50.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778672549
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gratulacje <nazwa gracza>!
+  m_text: "Gratulacje \nPlayer1!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c280c3de2818c04c9a3eaceea852707, type: 2}
   m_sharedMaterial: {fileID: -9172215526103954922, guid: 7c280c3de2818c04c9a3eaceea852707, type: 2}
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 48.3
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1819,7 +1819,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 353, y: 427.63}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 320, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196865104
 MonoBehaviour:
