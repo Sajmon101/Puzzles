@@ -13,6 +13,9 @@ public class DragAndDrop : MonoBehaviour
     private Camera mainCamera;
     private float snapThreshold;
     private bool isSnapped = false;
+    [SerializeField] private ParticleSystem blowPS;
+    private bool wasPlayed = false;
+    private bool dragingEnabled;
 
     private void Start()
     {
@@ -49,6 +52,12 @@ public class DragAndDrop : MonoBehaviour
                 isSnapped = true;
                 GameManager.Instance.SpawnRandomPuzzle();
                 AudioManager.Instance.Play(AudioManager.SoundName.SnapSound);
+                if(!wasPlayed)
+                {
+                    blowPS.Play();
+                    wasPlayed = true;
+                }
+                    
             }
         }
     }

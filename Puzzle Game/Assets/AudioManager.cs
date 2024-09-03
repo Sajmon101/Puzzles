@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
         SnapSound,
         ButtonSound,
         BackgroundSong,
-        WinSound
+        WinSound,
+        FailSound
     }
 
     [System.Serializable]

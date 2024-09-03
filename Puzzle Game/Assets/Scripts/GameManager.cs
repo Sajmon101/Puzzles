@@ -9,6 +9,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject failPanel;
+    [SerializeField] private GameObject darkening;
     [SerializeField] private TextMeshProUGUI winPanelBigText;
     [SerializeField] private TextMeshProUGUI winPanelSmallText;
     [SerializeField] private Transform puzzlePile;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int puzzleBoardSize = 4;
     [SerializeField] private Timer timer;
 
+    public float maxGameTime;
+    public bool gameLasts;
     private float boardSize;
     private float puzzleScale;
     private float puzzleOffset;
@@ -56,6 +60,15 @@ public class GameManager : MonoBehaviour
         GeneratePuzzleBoard(puzzleBoardSize);
         MakePuzzlePile();
         SpawnRandomPuzzle();
+        gameLasts = true;
+    }
+
+    private void Update()
+    {
+        if (timer.GetCurrentTimerValue().minutes >= maxGameTime && gameLasts)
+        {
+            GameOver();
+        }
     }
 
     private void CreatePuzzle(GameObject puzzleType, int rotation)
@@ -178,12 +191,28 @@ public class GameManager : MonoBehaviour
         winPanelBigText.text = "Gratulacje " + PlayerData.playerName + "!";
         winPanelSmallText.text = "Twój czas to: " + timer.GetCurrentTimerValue().minutes.ToString("00") + ":" + timer.GetCurrentTimerValue().seconds.ToString("00");
         AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
-        backgrounSound.volume = 0.35f;
+        backgrounSound.volume = 0.3f;
         AudioManager.Instance.Play(AudioManager.SoundName.WinSound);
     }
 
     public void NextScene()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void GameOver()
+    {
+        gameLasts = false;
+        AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
+        backgrounSound.volume = 0.3f;
+        AudioManager.Instance.Play(AudioManager.SoundName.FailSound);
+        timer.StopTimer();
+        failPanel.SetActive(true);
+        darkening.SetActive(true);
     }
 }

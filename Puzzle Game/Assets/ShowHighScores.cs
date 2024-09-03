@@ -18,6 +18,7 @@ public class ShowHighScores : MonoBehaviour
     void Awake()
     {
         filePath = Application.persistentDataPath + "/highscores.json";
+        print(filePath);
     }
 
     void Start()
@@ -88,4 +89,6 @@ public class ShowHighScores : MonoBehaviour
             return new HighscoreTable(); // Zwróæ pusty ranking, jeœli plik nie istnieje
         }
     }
+
+
 }

@@ -171,6 +171,8 @@ MonoBehaviour:
   playerNamePanel: {fileID: 0}
   playerNameInput: {fileID: 0}
   errorText: {fileID: 0}
+  customCursorTexture: {fileID: 0}
+  cursorMode: 0
 --- !u!1 &195843310
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,8 +512,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: O grze
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cd250c483b276c042bc4811ae0adb609, type: 2}
-  m_sharedMaterial: {fileID: 6560215495525548545, guid: cd250c483b276c042bc4811ae0adb609, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -535,8 +537,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 107.8
-  m_fontSizeBase: 107.8
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -614,15 +616,15 @@ RectTransform:
   m_GameObject: {fileID: 1107309460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 164023911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 431, y: 61}
-  m_SizeDelta: {x: 192, y: 63.07}
+  m_SizeDelta: {x: 277, y: 91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107309462
 MonoBehaviour:
@@ -892,16 +894,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Autor: Szymon Korus\nDla projektu: Tydzie\u0144 klimatu Most europa-Afryka\n\nMuzyka
-    w tle pt. \"Inspiring and Energetic\" autorstwa UNIVERSFIELD jest dost\u0119pny
-    na licencji Creative Commons Attribution 4.0 (cc by 4.0). [Link do licencji:
-    https://creativecommons.org/licenses/by/4.0/] oraz dost\u0119pny na https://freesound.org/people/universfield/sounds/749933/.\n\n\"Bass
+  m_text: "autor: szymon korus\ndla projektu: tydzie\u0144 klimatu most europa-afryka\n\nmuzyka
+    w tle pt. \"inspiring and energetic\" autorstwa universfield jest dost\u0119pny
+    na licencji creative commons attribution 4.0 (cc by 4.0). [link do licencji:
+    https://creativecommons.org/licenses/by/4.0/] oraz dost\u0119pny na https://freesound.org/people/universfield/sounds/749933/.\n\n\"bass
     drum snare roll victorious victory positive percussion\" autorstwa ryusa jest
     dost\u0119pna na licencji https://creativecommons.org/licenses/by/4.0/] oraz
-    dost\u0119pny na https://freesound.org/people/ryusa/sounds/531132/."
+    dost\u0119pny na https://freesound.org/people/ryusa/sounds/531132/.\n\n<a href=\"https://pl.freepik.com/darmowe-wektory/czerwony-i-zolty-zestaw-kursora_1538082.htm#fromView=search&page=1&position=50&uuid=a50502a5-5c4f-4546-91c3-7c72cc32a53e\">Obraz
+    autorstwa freepik</a>\r\n\r\n<a href=\"https://pl.freepik.com/darmowe-wektory/3d-metalowa-gwiazda-na-bialym-tle_31747695.htm#fromView=search&page=1&position=2&uuid=ee9b3ec4-14cf-4704-9fd9-bd231a7973c0\">Obraz
+    autorstwa brgfx na Freepik</a>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cd250c483b276c042bc4811ae0adb609, type: 2}
-  m_sharedMaterial: {fileID: 6560215495525548545, guid: cd250c483b276c042bc4811ae0adb609, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c280c3de2818c04c9a3eaceea852707, type: 2}
+  m_sharedMaterial: {fileID: -9172215526103954922, guid: 7c280c3de2818c04c9a3eaceea852707, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

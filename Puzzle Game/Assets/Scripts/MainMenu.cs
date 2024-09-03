@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameInput;
     [SerializeField] private TextMeshProUGUI errorText;
     private string filePath;
+    public Texture2D customCursorTexture; // Twoja tekstura kursora
+    private Vector2 hotSpot = Vector2.zero; // Punkt, który bêdzie centrum kursora. Mo¿esz ustawiæ (0,0) dla lewego górnego rogu lub (texture.width/2, texture.height/2) dla œrodka.
+    public CursorMode cursorMode = CursorMode.Auto; 
 
     void Awake()
     {
@@ -22,6 +26,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.SetCursor(customCursorTexture, hotSpot, cursorMode);
+
         AudioSource backgroundSong = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
 
         if (!backgroundSong.isPlaying)
@@ -83,6 +89,10 @@ public class MainMenu : MonoBehaviour
             case ValidationStatus.NameAlreadyExists:
                 errorText.text = "Ta nazwa ju¿ jest zajêta";
                 return false;
+
+            case ValidationStatus.ContainSpecialCharacters:
+                errorText.text = "Nazwa nie mo¿e posiadaæ znaków specjalnych";
+                return false;
         }
 
         return false;
@@ -93,7 +103,8 @@ public class MainMenu : MonoBehaviour
         Success,
         EmptyName,
         TooLongName,
-        NameAlreadyExists
+        NameAlreadyExists,
+        ContainSpecialCharacters
     }
 
     private ValidationStatus ValidatePlayerName(string playerName)
@@ -104,10 +115,16 @@ public class MainMenu : MonoBehaviour
             return ValidationStatus.TooLongName;
         if (IsNameExisting(playerName))
             return ValidationStatus.NameAlreadyExists;
+        if(ContainsSpecialCharacters(playerName))
+            return ValidationStatus.ContainSpecialCharacters;
 
         return ValidationStatus.Success;
     }
 
+    private bool ContainsSpecialCharacters(string input)
+    {
+        return input.Any(ch => !Char.IsLetterOrDigit(ch));
+    }
     private bool IsNameExisting(string playerName)
     {
         HighscoreTable highscoreTable = LoadHighscores();
@@ -140,4 +157,21 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void DeleteHighScores()
+    {
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+    }
+
+    public void ShowPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void HidePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
 }
