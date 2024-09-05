@@ -2178,7 +2178,7 @@ MonoBehaviour:
   sideOneHolePuzzle: {fileID: 7743615228002877737, guid: f71cc1d1ba6725b48928a2f73a19e09b, type: 3}
   innerPuzzle: {fileID: 6433669403455809646, guid: ce31cb73dad31ae4f9896a83807b4452, type: 3}
   logo: {fileID: 7555534850425685170, guid: 205970754ca346a4ba5de76ea6ade59a, type: 3}
-  puzzleBoardSize: 6
+  puzzleBoardSize: 2
   timer: {fileID: 947570793}
   maxGameTime: 5
   gameLasts: 0
