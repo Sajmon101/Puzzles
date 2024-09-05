@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+
 using static Timer;
+using System;
 
 public class HighscoreManager : MonoBehaviour
 {
@@ -23,7 +25,11 @@ public class HighscoreManager : MonoBehaviour
     {
         string playerName = PlayerData.playerName; 
         TimerValue finishTime = timer.GetCurrentTimerValue();
-        AddNewScore(playerName, finishTime);
+        float finishTimeInSeconds = finishTime.seconds + finishTime.minutes * 60;
+        float puzzlesAmount = (float)Math.Pow(GameManager.Instance.puzzleBoardSize, 2f);
+        float finalScore = (100f * (float)Math.Pow(puzzlesAmount, 1.6f))/(finishTimeInSeconds);
+
+        AddNewScore(playerName, finalScore);
     }
 
     public void SaveHighscores(HighscoreTable highscoreTable)
@@ -45,32 +51,16 @@ public class HighscoreManager : MonoBehaviour
         }
     }
 
-    public void AddNewScore(string playerName, TimerValue score)
+    public void AddNewScore(string playerName, float score)
     {
         HighscoreTable highscoreTable = LoadHighscores();
         Score newScore = new Score { playerName = playerName, score = score };
         highscoreTable.scoreList.Add(newScore);
 
         // Sortuj wyniki rosn¹co po czasie (mniej czasu to lepszy wynik)
-        highscoreTable.scoreList.Sort((x, y) => CompareTimerValues(x.score, y.score));
+        highscoreTable.scoreList.Sort((x, y) => y.score.CompareTo(x.score));
 
         SaveHighscores(highscoreTable);
     }
-
-    public int CompareTimerValues(TimerValue x, TimerValue y)
-    {
-        if (x.minutes != y.minutes)
-        {
-            return x.minutes.CompareTo(y.minutes); // Porównaj najpierw minuty
-        }
-        else
-        {
-            return x.seconds.CompareTo(y.seconds); // Jeœli minuty s¹ równe, porównaj sekundy
-        }
-    }
-
-
-
-
 
 }

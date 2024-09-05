@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b94d3878c0e45b143a88bac492fc9a8a
+guid: de0929065e466c94c84a416506a5360e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,13 +43,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5173745, y: 0.6}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 41, y: 74, z: 34, w: 18}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -108,18 +108,84 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Kopia \u2013 Ranking (1)_0"
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 161
+        width: 1332
+        height: 901
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3197519c319697541aaf69cd4fdf5e42
+      internalID: -1914538683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kopia \u2013 Ranking (1)_1"
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 52
+        width: 921
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b669e46c4c8f845a411ec6b56e6c42
+      internalID: 1264255628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Kopia \u2013 Ranking (1)_2"
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 52
+        width: 921
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9adc9c9d983022b4eb4976de26500536
+      internalID: -1477959352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Kopia \u2013 Ranking (1)_0": -1914538683
+      "Kopia \u2013 Ranking (1)_1": 1264255628
+      "Kopia \u2013 Ranking (1)_2": -1477959352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,5 +6,5 @@ using UnityEngine;
 public class Score
 {
     public string playerName;
-    public Timer.TimerValue score;
+    public float score;
 }

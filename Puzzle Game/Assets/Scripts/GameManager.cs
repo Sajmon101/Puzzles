@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject sideOneHolePuzzle;
     [SerializeField] private GameObject innerPuzzle;
     [SerializeField] private GameObject logo;
-    [SerializeField] private int puzzleBoardSize = 4;
+    [SerializeField] public float puzzleBoardSize = 4f;
     [SerializeField] private Timer timer;
 
     public float maxGameTime;
@@ -54,10 +54,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("SliderValue"))
+        {
+            float sliderValue = PlayerPrefs.GetFloat("SliderValue");
+            Debug.Log("Odebrana wartoœæ slidera: " + sliderValue);
+
+            puzzleBoardSize = 4f + sliderValue * 2;
+        }
+
         puzzleScale = 800f/puzzleBoardSize;
         puzzleOffset = 1.26f *puzzleScale;
 
-        GeneratePuzzleBoard(puzzleBoardSize);
+        GeneratePuzzleBoard((int)puzzleBoardSize);
         MakePuzzlePile();
         SpawnRandomPuzzle();
         gameLasts = true;

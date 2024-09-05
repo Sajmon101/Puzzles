@@ -235,4 +235,15 @@ public class MainMenu : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
+    public void Quit()
+    {
+        #if UNITY_EDITOR
+                // Jeœli u¿ywasz edytora Unity
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                // Jeœli gra jest uruchomiona jako aplikacja
+                Application.Quit();
+        #endif
+    }
 }

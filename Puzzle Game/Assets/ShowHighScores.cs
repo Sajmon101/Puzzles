@@ -52,7 +52,7 @@ public class ShowHighScores : MonoBehaviour
             TextMeshProUGUI scorePlayerName = scoreEntry.GetComponent<Score1>().playerName;
             TextMeshProUGUI scoreTime = scoreEntry.GetComponent<Score1>().time;
             scorePlayerName.text = (i+1).ToString() + ". " + score.playerName;
-            scoreTime.text = score.score.minutes.ToString("00") + ":" + score.score.seconds.ToString("00.00");
+            scoreTime.text = score.score.ToString("F0");
         }
 
         if (currentPlayerHihgscoreTile != null)
