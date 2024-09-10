@@ -222,4 +222,10 @@ public class GameManager : MonoBehaviour
         failPanel.SetActive(true);
         darkening.SetActive(true);
     }
+
+    public void backGroundMusicToMax()
+    {
+        AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
+        backgrounSound.volume = 1f;
+    }
 }

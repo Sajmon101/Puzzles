@@ -26,9 +26,6 @@ public class CheckPassword : MonoBehaviour
     {
         string cleanedInputPassword = Regex.Replace(inputPassword.text, @"\p{C}+", string.Empty).Trim();
 
-        Debug.Log(inputPassword.text + inputPassword.text.Length);
-        Debug.Log(correctPassword + correctPassword.Length);
-
         if (isPasswordCorrect(cleanedInputPassword))
         {
             passwordPanel.SetActive(false);
