@@ -395,4 +395,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 4967454958582936030}
-  time: {fileID: 310841579392654988}
+  points: {fileID: 310841579392654988}

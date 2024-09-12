@@ -38,19 +38,16 @@ public class DragAndDrop : MonoBehaviour
 
         if (!isSnapped)
         {
-            // Zapisz offset miêdzy pozycj¹ obiektu a pozycj¹ kursora
             offset = transform.position - GetMouseWorldPosition();
 
             Vector3 targetPosition = GetComponent<Puzzle>().correctPosition;
 
-            // SprawdŸ, czy puzzel jest blisko docelowej pozycji
             if (Vector3.Distance(transform.position, targetPosition) <= snapThreshold)
             {
                 gameObject.GetComponent<SortingGroup>().sortingOrder = 1;
-                // Ustawienie puzzla dok³adnie na docelowej pozycji
                 transform.position = targetPosition;
                 isSnapped = true;
-                GameManager.Instance.SpawnRandomPuzzle();
+                PuzzleManager.Instance.SpawnRandomPuzzle();
                 AudioManager.Instance.Play(AudioManager.SoundName.SnapSound);
                 if(!wasPlayed)
                 {
@@ -66,7 +63,6 @@ public class DragAndDrop : MonoBehaviour
     {
         if (isDragging)
         {
-            // Przemieszczanie obiektu w œlad za myszk¹
             transform.position = GetMouseWorldPosition() + offset;
         }
     }
@@ -74,7 +70,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = mainCamera.WorldToScreenPoint(transform.position).z; // Z odleg³oœci¹ Z obiektu
+        mousePoint.z = mainCamera.WorldToScreenPoint(transform.position).z;
         return mainCamera.ScreenToWorldPoint(mousePoint);
     }
 

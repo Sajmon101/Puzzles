@@ -18,7 +18,7 @@ public class HighscoreManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.OnGameEnd += OnGameEnd;
+        PuzzleManager.Instance.OnGameVictory += OnGameEnd;
     }
 
     private void OnGameEnd(object sender, System.EventArgs e)
@@ -26,7 +26,7 @@ public class HighscoreManager : MonoBehaviour
         string playerName = PlayerData.playerName; 
         TimerValue finishTime = timer.GetCurrentTimerValue();
         float finishTimeInSeconds = finishTime.seconds + finishTime.minutes * 60;
-        float puzzlesAmount = (float)Math.Pow(GameManager.Instance.puzzleBoardSize, 2f);
+        float puzzlesAmount = (float)Math.Pow(PuzzleManager.Instance.GetPuzzleBoardSize(), 2f);
         float finalScore = (100f * (float)Math.Pow(puzzlesAmount, 1.6f))/(finishTimeInSeconds);
 
         AddNewScore(playerName, finalScore);

@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score1 : MonoBehaviour
+public class RecordFields : MonoBehaviour
 {
     public TextMeshProUGUI playerName;
-    public TextMeshProUGUI time;
+    public TextMeshProUGUI points;
 }

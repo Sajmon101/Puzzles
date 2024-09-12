@@ -123,6 +123,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &111398656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111398657}
+  - component: {fileID: 111398658}
+  m_Layer: 0
+  m_Name: WinLoseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111398657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111398656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9708695, y: 1.1530082, z: -0.6722671}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111398658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111398656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a93d668855f12347940e6ae092ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPanel: {fileID: 229505989}
+  failPanel: {fileID: 1996644526}
+  darkening: {fileID: 1837027569}
+  winPanelBigText: {fileID: 878677707}
+  winPanelSmallText: {fileID: 778672549}
+  puzzleBackground: {fileID: 543712068}
+  canvas: {fileID: 153851489}
+  timer: {fileID: 1518614660}
 --- !u!1 &153851485
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,14 +449,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1401011227}
+      - m_Target: {fileID: 1188900710}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NextScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -554,7 +606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1401011227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -566,7 +618,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1401011227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: backGroundMusicToMax
         m_Mode: 1
@@ -1272,10 +1324,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1401011227}
+      - m_Target: {fileID: 1188900710}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BackToMain
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1534,6 +1586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905632667}
   - component: {fileID: 905632668}
+  - component: {fileID: 905632669}
   m_Layer: 0
   m_Name: puzzlePile
   m_TagString: Untagged
@@ -1568,6 +1621,24 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_SortAtRoot: 0
+--- !u!114 &905632669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905632666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a4c0232ddc6784c8492f01aa74df63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cornerPuzzle: {fileID: 3246829614947339490, guid: a79d2a4f92bef1344a5d048157908169, type: 3}
+  sideTwoHolesPuzzle: {fileID: 625787579580603709, guid: dd8a575e8d8010549981093f02158eb2, type: 3}
+  sideOneHolePuzzle: {fileID: 7743615228002877737, guid: f71cc1d1ba6725b48928a2f73a19e09b, type: 3}
+  innerPuzzle: {fileID: 6433669403455809646, guid: ce31cb73dad31ae4f9896a83807b4452, type: 3}
+  puzzleTargetPlace: {fileID: 2108501530}
+  logo: {fileID: 7555534850425685170, guid: 205970754ca346a4ba5de76ea6ade59a, type: 3}
 --- !u!1 &1071818034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1718,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071818034}
   m_CullTransparentMesh: 1
+--- !u!1 &1188900709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188900711}
+  - component: {fileID: 1188900710}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1188900710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188900709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c925a2e098d86474d8d446db4ee1b70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1188900711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188900709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9708695, y: 1.1530082, z: -0.6722671}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1196865102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2a3a0a96f275245afcec18eb87a47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 1518614658}
   instructionPanel: {fileID: 1071818034}
 --- !u!114 &1367198138
 MonoBehaviour:
@@ -1983,7 +2098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4ab86a8972cee44bb0c07274f444b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 1518614660}
 --- !u!4 &1370056957
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,68 +2216,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1401011226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1401011228}
-  - component: {fileID: 1401011227}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1401011227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401011226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c925a2e098d86474d8d446db4ee1b70a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winPanel: {fileID: 229505989}
-  failPanel: {fileID: 1996644526}
-  darkening: {fileID: 1837027569}
-  winPanelBigText: {fileID: 878677707}
-  winPanelSmallText: {fileID: 778672549}
-  puzzlePile: {fileID: 905632667}
-  puzzleTargetPlace: {fileID: 2108501530}
-  puzzleBackground: {fileID: 7328030867912393719, guid: dbced4362da24d1488562181a84d20db, type: 3}
-  canvas: {fileID: 153851489}
-  cornerPuzzle: {fileID: 3246829614947339490, guid: a79d2a4f92bef1344a5d048157908169, type: 3}
-  sideTwoHolesPuzzle: {fileID: 625787579580603709, guid: dd8a575e8d8010549981093f02158eb2, type: 3}
-  sideOneHolePuzzle: {fileID: 7743615228002877737, guid: f71cc1d1ba6725b48928a2f73a19e09b, type: 3}
-  innerPuzzle: {fileID: 6433669403455809646, guid: ce31cb73dad31ae4f9896a83807b4452, type: 3}
-  logo: {fileID: 7555534850425685170, guid: 205970754ca346a4ba5de76ea6ade59a, type: 3}
-  puzzleBoardSize: 2
-  timer: {fileID: 0}
-  maxGameTime: 5
-  gameLasts: 0
---- !u!4 &1401011228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401011226}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518614658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,6 +2266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55fc36b5fce29e409c43f761de4b619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxGameTime: 5
 --- !u!114 &1518614661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3129,9 +3183,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1669515746}
   - {fileID: 1909547112}
-  - {fileID: 905632667}
   - {fileID: 153851489}
   - {fileID: 1399818674}
-  - {fileID: 1401011228}
+  - {fileID: 905632667}
   - {fileID: 1370056957}
   - {fileID: 874713518}
+  - {fileID: 111398657}
+  - {fileID: 1188900711}

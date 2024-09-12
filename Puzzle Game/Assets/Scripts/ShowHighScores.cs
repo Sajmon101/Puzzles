@@ -23,7 +23,6 @@ public class ShowHighScores : MonoBehaviour
 
     void Start()
     {
-        //AudioManager.Instance.Play(AudioManager.SoundName.BackgroundSong);
         AudioSource backgrounSound = AudioManager.Instance.GetSound(AudioManager.SoundName.BackgroundSong);
         backgrounSound.volume = 1f;
         ShowScores();
@@ -32,28 +31,7 @@ public class ShowHighScores : MonoBehaviour
     private void ShowScores()
     {
         HighscoreTable highscoreTable = LoadHighscores();
-
-        for (int i = 0; i < highscoreTable.scoreList.Count; i++)
-        {
-            Score score = highscoreTable.scoreList[i];
-            GameObject scoreEntry;
-
-            if (score.playerName == PlayerData.playerName)
-            {
-                scoreEntry = Instantiate(currentPlayerScoreRecordPrefab, scoreTableContent);
-                currentPlayerHihgscoreTile = scoreEntry;
-            }
-            else
-            {
-                scoreEntry = Instantiate(scoreRecordPrefab, scoreTableContent);
-            }
-
-            // Ustaw tekst lub inne dane
-            TextMeshProUGUI scorePlayerName = scoreEntry.GetComponent<Score1>().playerName;
-            TextMeshProUGUI scoreTime = scoreEntry.GetComponent<Score1>().time;
-            scorePlayerName.text = (i+1).ToString() + ". " + score.playerName;
-            scoreTime.text = score.score.ToString("F0");
-        }
+        FillTable(highscoreTable);
 
         if (currentPlayerHihgscoreTile != null)
         {
@@ -86,7 +64,31 @@ public class ShowHighScores : MonoBehaviour
         }
         else
         {
-            return new HighscoreTable(); // Zwróæ pusty ranking, jeœli plik nie istnieje
+            return new HighscoreTable();
+        }
+    }
+
+    private void FillTable(HighscoreTable highscoreTable)
+    {
+        for (int i = 0; i < highscoreTable.scoreList.Count; i++)
+        {
+            Score score = highscoreTable.scoreList[i];
+            GameObject scoreEntry;
+
+            if (score.playerName == PlayerData.playerName)
+            {
+                scoreEntry = Instantiate(currentPlayerScoreRecordPrefab, scoreTableContent);
+                currentPlayerHihgscoreTile = scoreEntry;
+            }
+            else
+            {
+                scoreEntry = Instantiate(scoreRecordPrefab, scoreTableContent);
+            }
+
+            TextMeshProUGUI scorePlayerName = scoreEntry.GetComponent<RecordFields>().playerName;
+            TextMeshProUGUI scoreTime = scoreEntry.GetComponent<RecordFields>().points;
+            scorePlayerName.text = (i+1).ToString() + ". " + score.playerName;
+            scoreTime.text = score.score.ToString("F0");
         }
     }
 

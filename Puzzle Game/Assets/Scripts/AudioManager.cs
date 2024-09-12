@@ -53,6 +53,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AudioSource backgroundSong = GetSound(SoundName.BackgroundSong);
+
+        if (!backgroundSong.isPlaying)
+        {
+            Play(SoundName.BackgroundSong);
+        }
+    }
+
     public void Play(SoundName name)
     {
         Sound s = System.Array.Find(sounds, sound => sound.name == name);

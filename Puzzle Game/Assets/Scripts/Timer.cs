@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
     private TextMeshProUGUI displayedTime;
     private bool timerIsRunning;
     private TimerValue currentTimerValue = new();
+    public float maxGameTime = 5f;
+    public EventHandler OnGameLose;
 
     [System.Serializable]
     public class TimerValue
@@ -21,7 +23,7 @@ public class Timer : MonoBehaviour
         displayedTime = GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnGameEnd(object sender, EventArgs e)
+    private void OnGameVictory(object sender, EventArgs e)
     {
         StopTimer();
     }
@@ -29,9 +31,9 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timerIsRunning = false;
-        GameManager.Instance.OnGameEnd += OnGameEnd;
+        PuzzleManager.Instance.OnGameVictory += OnGameVictory;
         ResetTimer();
-        StartTimer(); //to i wywo³anie ResetTimer nie powinno byæ w tym miejscu tylko po wciœniêciu przycisku Start Game czy coœ
+        StartTimer(); 
     }
 
     public void StartTimer()
@@ -50,13 +52,19 @@ public class Timer : MonoBehaviour
         {
             currentTimerValue.seconds += Time.deltaTime;
 
-            if (currentTimerValue.seconds >= 59.6) 
+            if (currentTimerValue.seconds >= 59.6)
             {
                 currentTimerValue.minutes++;
                 currentTimerValue.seconds = 0;
             }
-            
+
             UpdateTimerDisplay();
+
+
+            if (currentTimerValue.minutes >= maxGameTime)
+            {
+                OnGameLose?.Invoke(this, new EventArgs());
+            }
         }
     }
 

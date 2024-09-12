@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -8,11 +9,17 @@ using UnityEngine.UI;
 public class CheckPassword : MonoBehaviour
 {
     [SerializeField] TMP_InputField inputPassword;
-    [SerializeField] MainMenu mainMenu;
     [SerializeField] GameObject passwordPanel;
     [SerializeField] GameObject wasDeletedPanel;
     [SerializeField] GameObject errorText;
     private string correctPassword = "zielonybridge";
+
+    private string filePath;
+
+    private void Awake()
+    {
+        filePath = Application.persistentDataPath + "/highscores.json";
+    }
 
     private bool isPasswordCorrect(string password)
     {
@@ -30,11 +37,19 @@ public class CheckPassword : MonoBehaviour
         {
             passwordPanel.SetActive(false);
             wasDeletedPanel.SetActive(true);
-            mainMenu.DeleteHighScores();
+            DeleteHighScores();
         }
         else
         {
             errorText.GetComponent<TextMeshProUGUI>().text = "Niepoprawne has³o";
+        }
+    }
+
+    public void DeleteHighScores()
+    {
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
         }
     }
 }
