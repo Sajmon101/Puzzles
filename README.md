@@ -15,14 +15,16 @@ This project is a competitive puzzle game developed for the Green Bridge Europe 
 - C#
 
 ## Screenshots
-<img src="Images/MainMenu.png" alt="Main Menu" width="500"/> <img src="Image/HighScores.png" alt="HighScores" width="500"/>
+<img src="Images/MainMenu.png" alt="Main Menu" width="500"/> <img src="Images/HighScores.png" alt="HighScores" width="500"/>
 ![Gameplay GIF](Images/PromoVideo.gif)
 
 ## Assets
 Additional external resources:
 
-- **Sci-Fi Styled Modular Pack** – downloaded from [Unity Asset Store](https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913).
-
+- **Background Music** – downloaded from [FreeSound](https://freesound.org/people/universfield/sounds/749933/).
+- **Other Sounds** - downloaded from [FreeSound](https://freesound.org/people/ryusa/sounds/531132/).
+- **Cursor Image** - downloaded from [Freepik](https://pl.freepik.com/darmowe-wektory/czerwony-i-zolty-zestaw-kursora_1538082.htm#fromView=search&page=1&position=50&uuid=a50502a5-5c4f-4546-91c3-7c72cc32a53e).
+- **Star Image** - downloaded from [Freepik](https://pl.freepik.com/darmowe-wektory/3d-metalowa-gwiazda-na-bialym-tle_31747695.htm#fromView=search&page=1&position=2&uuid=ee9b3ec4-14cf-4704-9fd9-bd231a7973c0).
 
 ## License
 The project is available under the MIT License.
