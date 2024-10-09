@@ -16,7 +16,7 @@ This project is a competitive puzzle game developed for the Green Bridge Europe 
 
 ## Screenshots
 <img src="Images/MainMenu.png" alt="Main Menu" width="500"/>
-![Gameplay GIF](Images/PromoVideo.gif)
+<img src="Images/PromoVideo.gif" alt="Gameplay GIF" width="500"/>
 
 ## Assets
 Additional external resources:
