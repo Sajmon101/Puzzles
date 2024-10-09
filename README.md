@@ -15,7 +15,7 @@ This project is a competitive puzzle game developed for the Green Bridge Europe 
 - C#
 
 ## Screenshots
-<img src="Images/MainMenu.png" alt="Main Menu" width="500"/> <img src="Images/HighScores.png" alt="HighScores" width="500"/>
+<img src="Images/MainMenu.png" alt="Main Menu" width="500"/>
 ![Gameplay GIF](Images/PromoVideo.gif)
 
 ## Assets
