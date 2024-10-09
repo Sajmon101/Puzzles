@@ -14,7 +14,7 @@ This project is a competitive puzzle game developed for the Green Bridge Europe 
 - Unity 2022.3.12f1
 - C#
 
-## Screenshots
+## Preview
 <img src="Images/MainMenu.png" alt="Main Menu" width="500"/>
 <img src="Images/PromoVideo.gif" alt="Gameplay GIF" width="500"/>
 
