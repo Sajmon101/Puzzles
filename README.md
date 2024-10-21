@@ -11,7 +11,7 @@ This project is a competitive puzzle game developed for the Green Bridge Europe 
 - **Dynamic Puzzle Generation**: Puzzles are dynamically generated based on the event emblem, allowing quick change of puzzle number in code.
 
 ## Tools
-- Unity 2022.3.12f1 (URP pipeline)
+- Unity 2022.3.12f1 (URP)
 - C#
 
 ## Preview
